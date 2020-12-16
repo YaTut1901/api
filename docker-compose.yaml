@@ -1,0 +1,28 @@
+version: '3'
+services:
+  nginx:
+    container_name: some-nginx
+    ports:
+      - 80:80
+      - 443:443
+    build: ./nginx
+
+  app:
+    build: ./app
+    working_dir: /app
+    volumes:
+      - ./app:/app
+    command: mvn clean spring-boot:run
+
+  db:
+    image: library/mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'db'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
