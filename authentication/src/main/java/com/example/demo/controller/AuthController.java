@@ -12,7 +12,6 @@ public class AuthController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity method() {
-        System.out.println("aaaaaaaaaa");
-        return new ResponseEntity(HttpStatus.OK);
+        return new ResponseEntity(HttpStatus.UNAUTHORIZED);
     }
 }
