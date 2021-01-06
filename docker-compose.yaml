@@ -18,6 +18,15 @@ services:
       - db
     command: mvn clean spring-boot:run
 
+  auth:
+    build: ./authentication
+    working_dir: /authentication
+    volumes:
+      - ./authentication:/authentication
+    links:
+      - db
+    command: mvn clean spring-boot:run
+
   db:
     image: library/mysql:5.7
     restart: always
