@@ -18,7 +18,7 @@ services:
       - db
     command: mvn clean spring-boot:run
 
-  auth:
+  authentication:
     build: ./authentication
     working_dir: /authentication
     volumes:

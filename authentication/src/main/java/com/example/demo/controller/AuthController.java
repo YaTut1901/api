@@ -9,9 +9,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class AuthController {
-    @RequestMapping(value = "/controller", method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity method() {
-        return new ResponseEntity(HttpStatus.I_AM_A_TEAPOT);
+        System.out.println("aaaaaaaaaa");
+        return new ResponseEntity(HttpStatus.OK);
     }
 }
